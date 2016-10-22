@@ -6,7 +6,7 @@ if [ "$#" -eq 1 ]; then
   exit 0
 fi
 
-for dir in `find . ! -path . -type d`
+for dir in `find . ! -path . -type d | grep -v "git"`
 do
 	echo $dir
 	./script_daq.R $dir

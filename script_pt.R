@@ -5,6 +5,7 @@ library(powtran)
 ##################################
 MARKER_LENGTH = 8
 OUTFILE_EXT = ".pdf"
+adjust_param=1
 ##################################
 
 read.from.zip <-function(zipfilename,skip=1,n=NA){
@@ -62,13 +63,13 @@ if(file.exists(filename_zip)){
 
 #samples/1000
 
-res = extract.power(samples$Pall / 1000, period, marker.length=MARKER_LENGTH, adjust=1)
+res = extract.power(samples$Pall / 1000, period, marker.length=MARKER_LENGTH, adjust=adjust_param)
 summary(res)
 pdf(file=outfile_all)
 plot(res)
 dev.off()
 
-res = extract.power(samples$Papp / 1000, period, marker.length=MARKER_LENGTH, adjust=1)
+res = extract.power(samples$Papp / 1000, period, marker.length=MARKER_LENGTH, adjust=adjust_param)
 summary(res)
 pdf(file=outfile_app)
 plot(res)
